@@ -72,6 +72,11 @@ function UrlInput({ setResult, loading, setLoading }) {
           placeholder="https://example.com"
           value={url}
           onChange={(e) => setUrl(e.target.value)}
+          onKeyDown={(e) => {
+            if (e.key === "Enter" && !loading) {
+              handleAnalyze();
+            }
+          }}
           size="small"
           sx={{
             "& .MuiOutlinedInput-root": {
